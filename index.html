@@ -10,10 +10,11 @@
 <div class="main">
         <div class="canvas">    
             <!-- <span>Color</span>         -->
-            <span class="R" click=""></span>
-            <span class="blue"></span>
-            <span class="green"></span>
-            <span class="Pink"></span>       
+            <span class="red"  onclick="selectColor(event)"></span>
+            <span class="blue"  onclick="selectColor(event)"></span>
+            <span class="green"  onclick="selectColor(event)"></span>
+            <span class="pink"  onclick="selectColor(event)"></span>  
+            <span class="black"  onclick="selectColor(event)"></span>       
         </div>      
     <canvas id="canvasId"></canvas>
 </div>   
@@ -25,15 +26,18 @@
     var canvas = document.getElementById('canvasId');
     var span = document.getElementsByTagName('span');
     var ctx = canvas.getContext('2d');
+    var color = "red";
     console.log(ctx);
+
+    window.onscroll = function () { window.scrollTo(0, 0); };
 
   //  canvas.style.margin = '50px 10px 20px 30px';   
     let painting = false;
 
    // canvas.width =  '500';
    // canvas.height = '800';
-   canvas.width = window.innerWidth * 0.8;
-   canvas.height = window.innerHeight * 0.8;
+   canvas.width = window.innerWidth;
+   canvas.height = window.innerHeight;
    
 
     
@@ -42,32 +46,61 @@
     // canvas.style.alignItems = "center";
 
 
-    span.addEventListener('click', function(){
-         var color = document.getElementsByTagName("span").className;
-         console.log(color) ;
-         //if
-    });
+    // span.addEventListener('click', function(){
+    //      var color = document.getElementsByTagName("span").className;
+    //      console.log(color) ;
+    //      //if
+    // });
+
+    function selectColor(e){
+        var classColor = e.target.className;
+        debugger;
+       
+
+        switch (classColor) {
+
+            case "red":
+            color = classColor;                
+                break;
+
+            case "green":
+            color = classColor;
+
+            case "blue":
+            color = classColor;
+
+            case "pink":
+            color = classColor;
+
+            case "black":
+            color = classColor;            
+        
+            default:
+                break;
+        }
+       // console.log(color);
+    }
 
 
     function startPosition(e){
         painting = true;
-        
+        ctx.beginPath();
         draw(e);
     }
     
     function endPostion(){
         painting = false;
-        ctx.beginPath();
+        ctx.endPath();
+       // 
     }
 
 
     function draw(e){
         if (!painting) return;
-
-        
+        console.log(color);
         ctx.lineWidth = 10;
         ctx.lineCap = 'round';
-        ctx.strokeStyle = 'red'
+        ctx.strokeStyle = color;
         
        
         ctx.lineTo(e.clientX - canvas.offsetLeft , e.clientY - canvas.offsetTop - 50 );

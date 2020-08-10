@@ -10,6 +10,8 @@
     display: flex;
     flex-direction: column;
     margin: 50px 0;
+    width: 100%;
+    
     
 }
 
@@ -21,6 +23,7 @@
     align-items: center; 
     margin-bottom: 50px;
     cursor: pointer;
+    
 }
 
 .canvas > span {
@@ -31,12 +34,13 @@
     text-align: center;
     line-height: 75px;
     font-size: 30px;
+    overflow: hidden;
   }   
   
   #canvasId{
      /* width: 800px; 
      height: 500px; */
-     margin-left: 50px;     
+     /* margin-right: 50px;      */
   }
 
 
@@ -56,6 +60,9 @@ span:nth-child(3){
 
 span:nth-child(4){
     background: pink;
+} 
+span:nth-child(5){
+    background: black;
 } 
 
 
