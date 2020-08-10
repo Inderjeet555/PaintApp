@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;   
+}
+
+.main{
+    position: relative; 
+    /* background-color: aqua;  */
+    align-items: center; 
+    display: flex;
+    flex-direction: column;
+    margin: 50px 0;
+    
+}
+
+.canvas {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: DodgerBlue;
+    justify-content: center;
+    align-items: center; 
+    margin-bottom: 50px;
+    cursor: pointer;
+}
+
+.canvas > span {
+    background: green;
+    width: 100px;
+    height: 50px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+  }   
+  
+  #canvasId{
+     /* width: 800px; 
+     height: 500px; */
+     margin-left: 50px;     
+  }
+
+
+
+
+span:nth-child(1){
+    background: red;
+}
+
+span:nth-child(2){
+    background: blue;
+}
+
+span:nth-child(3){
+    background: green;
+}
+
+span:nth-child(4){
+    background: pink;
+} 
+
+
