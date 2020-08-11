@@ -8,14 +8,17 @@
 </head>
 <body> 
 <div class="main">
-        <div class="canvas">    
-            <!-- <span>Color</span>         -->
+    <h2>Paint App</h2>
+        <div class="canvas">               
             <span class="red"  onclick="selectColor(event)"></span>
             <span class="blue"  onclick="selectColor(event)"></span>
             <span class="green"  onclick="selectColor(event)"></span>
             <span class="pink"  onclick="selectColor(event)"></span>  
-            <span class="black"  onclick="selectColor(event)"></span>   
-            <span class="size"></span>    
+            <span class="black"  onclick="selectColor(event)"></span>  
+            <p>Size</p> 
+             <input type="radio" name="radio" value="10" onclick="selectColor(event)" style="height:20px; width:20px;" class="radio-1"></input> 
+             <input type="radio" name="radio" value="15" onclick="selectColor(event)" style="height:25px; width:25px;" class="radio-2"></input>
+             <input type="radio" name="radio" value="35" onclick="selectColor(event)" style="height:35px; width:35px;" class="radio-3"></input>
         </div>      
     <canvas id="canvasId"></canvas>
 </div>   
@@ -25,7 +28,9 @@
 
 <script>
     var canvas = document.getElementById('canvasId');
-    var span = document.getElementsByTagName('span');
+    var span = document.getElementsByTagName('span');    
+    var Size = 10;        
+
     var ctx = canvas.getContext('2d');
     var color = "red";   
 
@@ -51,7 +56,8 @@
     // });
 
     function selectColor(e){
-        var classColor = e.target.className;      
+        var classColor = e.target.className; 
+        Size = e.target.value;            
 
         switch (classColor) {
 
@@ -93,13 +99,14 @@
 
     function draw(e){
         if (!painting) return;   
-
-        ctx.lineWidth = 15;
+       // console.log(size.value);
+        ctx.lineWidth = Size;
         ctx.lineCap = 'round';
         ctx.strokeStyle = color;
         
        
-        ctx.lineTo(e.clientX - canvas.offsetLeft , e.clientY - canvas.offsetTop - 10);       
+        ctx.lineTo(e.clientX - canvas.offsetLeft , e.clientY - canvas.offsetTop+45);     
+         
         ctx.stroke();
         // ctx.beginPath();
         // ctx.moveTo(e.clientX - canvas.offsetLeft , e.clientY - canvas.offsetTop-10);
